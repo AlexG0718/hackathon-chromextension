@@ -9,10 +9,8 @@ class Board {
     this.head = head;
     this.apple = apple;
     this.bodySegmentsToAdd = 1;
-
     this.boardElement.style.height = `${this.height}px`;
     this.boardElement.style.width = `${this.width}px`;
-
     this.resetGame();
 
     // Refactor the below line to create a bound version of `this.Move`.
@@ -42,6 +40,7 @@ class Board {
       this.head.addToBody(this.bodySegmentsToAdd);
       let { leftPosition, topPosition } = this.getRandomApplePosition();
       this.apple.setPosition(leftPosition, topPosition);
+      incrementScore();
     }
 
     let { leftPosition, topPosition } = this.calculateNewHeadPosition();
@@ -52,6 +51,9 @@ class Board {
       topPosition < 0 ||
       topPosition >= this.getMaxBoardHeightInPixels()
     ) {
+      score = 0;
+      const resetScore = document.querySelector('.active-score');
+      resetScore.innerHTML = score;
       alert('Game over. Play again?');
       this.resetGame();
     } else {

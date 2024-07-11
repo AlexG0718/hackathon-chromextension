@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #head {
   background: black;
   height: 50px;
@@ -17,14 +23,52 @@
 }
 
 #board {
-  height: 700px;
-  width: 700px;
-  border: 1px black solid;
+  height: 800px;
+  width: 800px;
+
   position: relative;
+  background: conic-gradient(
+    #9ed155 90deg,
+    #a6d75d 90deg 180deg,
+    #9ed155 180deg 270deg,
+    #a6d75d 270deg
+  );
+
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  background-position: top left;
+  display: grid;
+  place-content: center;
+  border-radius: 4px;
 }
 
 #apple {
   height: 50px;
   width: 50px;
   position: absolute;
+}
+
+.scoreboard {
+  display: flex;
+  width: 100%;
+   justify-content: space-around;
+   padding-bottom: 20px;
+   margin-top: 20px;
+}
+.score-section {
+  display: flex;
+  font-size: 40px;
+  color: rgb(235, 214, 218);
+  justify-content: center;
+  gap: 2rem;
+}
+.score-icon {
+  height: 50px;
+  transition: all .5s;
+  transform: scale(1);
+}
+
+.grow {
+  transform: scale(1.2);
+  transition: all .3s;
 }
