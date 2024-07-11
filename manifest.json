@@ -4,6 +4,9 @@
   "manifest_version": 3,
   "description": "This is an entertainment extension of the Snake game.",
   "author": "Alex Greenberg and Jason Tenney",
+  "permissions": [
+    "storage"
+  ],
   "action": {
     "default_popup": "index.html",
     "default_title": "Snake Game",

@@ -53,6 +53,8 @@ class Board {
     ) {
       score = 0;
       const resetScore = document.querySelector('.active-score');
+      const resetHiScore = document.querySelector('.high-score');
+      resetHiScore.innerHTML = hiScore;
       resetScore.innerHTML = score;
       alert('Game over. Play again?');
       this.resetGame();
@@ -79,6 +81,9 @@ class Board {
     this.currentDirection = direction;
     this.newDirection = direction;
     this.SPEED = 300;
+
+    const resetHiScore = document.querySelector('.high-score');
+      resetHiScore.innerHTML = hiScore;
   }
 
   getMaxBoardHeightInPixels() {

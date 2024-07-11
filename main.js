@@ -28,7 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
  const highScore = document.querySelector('.high-score')
  const iconTrophy = document.querySelector('.score-trophy')
  let score = 0;
- let hiScore = 0;
+//  let hiScore = 0;
+ if (!localStorage.getItem('hiScore')) {
+  localStorage.setItem('hiScore', 0);
+  hiScore = Number(localStorage.getItem('hiScore'));
+ }
+ else hiScore = Number(localStorage.getItem('hiScore'));
+ console.log(localStorage.getItem('hiScore'));
 
 
  function incrementScore() {
@@ -36,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
    if (!hiScore) hiScore = score;
    else if (score > hiScore) {
      hiScore = score;
+     localStorage.setItem('hiScore', score.toString());
      iconTrophy.classList.add('grow');
      
    setTimeout(function () {
